@@ -1,0 +1,16 @@
+export type N = { id: string; title: string; source: string; cluster_id: string | null; created_at: string; rank: number };
+export type E = { source: string; target: string; type: string; similarity: number | null; explanation?: string };
+export type C = { id: string; label: string; node_count: number };
+export type Hit = { note_id: string; title: string; source: string; similarity: number; snippet: string };
+export type Note = { id: string; title: string; content_text: string; links?: { target: string; note_id: string | null }[]; backlinks?: { id: string; title: string }[] };
+export type Citation = { n: number; note_id: string; title: string; similarity: number | null };
+export type ChatResp = { answer: string; citations: Citation[]; related_concepts: { note_id: string; title: string }[] };
+export type Idea = { title: string; pitch: string; combines: string[] };
+export type Gap = { topic: string; why: string; related_to: string };
+export type Concept = { name: string; notes: number; clusters: number };
+export type Source = { id: string; type: string; status: string; last_sync_at: string | null; last_error?: string | null };
+export type Settings = { embedding_version: string; sync_interval_hours: number; graph_threshold: number; llm_enabled: boolean; role: string; workspace_id: string; user_id: string; mfa_enabled: boolean; recovery_codes_left: number; notes: { total: number; indexed: number; outdated: number } };
+export type Audit = { ts: string; action: string; resource: string | null; status: number };
+export type Workspace = { id: string; name: string; role: 'owner' | 'editor' | 'viewer'; current: boolean; members: number };
+export type Members = { role: string; members: { user_id: string; email: string; role: string }[]; invites: { email: string; role: string }[] };
+export type Topic = { id: string; label: string; size: number; keywords: { term: string; score: number }[]; recent_count: number; recent_share: number; emerging: boolean };
